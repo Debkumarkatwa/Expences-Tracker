@@ -10,7 +10,7 @@
 
 2. Create a virtual environment for this project
 
-    `pip -venv`
+    `pip -m venv`
 
 3. Load the virtual environment
    - On Windows Terminal: `.venv\Scripts\activate`
