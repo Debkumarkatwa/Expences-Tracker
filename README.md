@@ -18,4 +18,4 @@
   
 4. Run `pip install -r requirements.txt`
 
-5. Run `PDF_TOOL.py`
+5. Run `Source_Code.py`
