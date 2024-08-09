@@ -37,7 +37,7 @@ def Search_Details(file_path:(__file__), search_by:str, search_value=None):
         for expense in expenses:
             if expense.Type == search_value:
                 Tracked_data=Tracked_data.__add__(f'{expense.Date} --> {expense.Category}:- {expense.Amount:.2f}.rs "{expense.Type}">\n')
-                print(expense)
+                # print(expense)
                 if expense.Category != '<-+->': Total_Amount+=expense.Amount
                 else: Total_Credit_Amount+=expense.Amount
                 track += 1
@@ -47,14 +47,14 @@ def Search_Details(file_path:(__file__), search_by:str, search_value=None):
             for expense in expenses:
                 if expense.Category == "<-+->": continue
                 Tracked_data=Tracked_data.__add__(f'{expense.Date} --> {expense.Category}:- {expense.Amount:.2f}.rs "{expense.Type}">\n')
-                print(expense)
+                # print(expense)
                 Total_Amount+=expense.Amount
                 track += 1
         else:
             for expense in expenses:
                 if expense.Category == search_value:
                     Tracked_data=Tracked_data.__add__(f'{expense.Date} --> {expense.Category}:- {expense.Amount:.2f}.rs "{expense.Type}">\n')
-                    print(expense)
+                    # print(expense)
                     Total_Amount+=expense.Amount
                     track += 1
  
@@ -65,19 +65,19 @@ def Search_Details(file_path:(__file__), search_by:str, search_value=None):
         for expense in expenses:
             if (from_date <= expense.Date <= to_date) and expense.Category != "<-+->":
                 Tracked_data=Tracked_data.__add__(f'{expense.Date} --> {expense.Category}:- {expense.Amount:.2f}.rs "{expense.Type}">\n')
-                print(expense)
+                # print(expense)
                 Total_Amount+=expense.Amount
                 track += 1
             if (from_date <= expense.Date <= to_date) and expense.Category == "<-+->":
                 Tracked_data=Tracked_data.__add__(f'{expense.Date} --> {expense.Category}:- {expense.Amount:.2f}.rs "{expense.Type}">\n')
-                print(expense)
+                # print(expense)
                 Total_Credit_Amount+=expense.Amount
             
 
     if track == 0:
         messagebox.showwarning("Error", "No data found matching the search criteria")
         return False   
-    print(Tracked_data)
+    # print(Tracked_data)
     messagebox.showinfo('Details', f'{Tracked_data}\nTotal Expencese : {Total_Amount}.rs\nTotal Credit : {Total_Credit_Amount}.rs')
     return True
 

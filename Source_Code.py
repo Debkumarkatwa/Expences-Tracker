@@ -77,7 +77,7 @@ def Debit():
 
 
 def Search(search_by):
-    print('Search by',search_by)
+    # print('Search by',search_by)
     global top_win   # createing a new window
     top_win = Toplevel(win,position=(400,150))
     top_win.title('Search Details')
@@ -123,8 +123,9 @@ win.resizable(False, False)
 # path of the file used to store the details
 global expense_file_path
 expense_file_path = 'Expense_Details.csv'  
-with open('Expense_Details.csv', 'r') as file: # create a file if not exists
-    pass
+with open('Expense_Details.csv', 'w+') as file: # create a file if not exists and write the header
+    if file.read() == '':
+        file.write(' --Date--, --Time--, --Category--, --Amount--,  --Type--, --Remaining Amount--, --Details--\n\n')
 
 
 
