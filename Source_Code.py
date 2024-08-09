@@ -123,8 +123,8 @@ win.resizable(False, False)
 # path of the file used to store the details
 global expense_file_path
 expense_file_path = 'Expense_Details.csv'  
-with open('Expense_Details.csv', 'w+') as file: # create a file if not exists and write the header
-    if file.read() == '':
+with open('Expense_Details.csv', 'a+') as file: # create a file if not exists and write the header
+    if file.tell() <= 0:
         file.write(' --Date--, --Time--, --Category--, --Amount--,  --Type--, --Remaining Amount--, --Details--\n\n')
 
 
